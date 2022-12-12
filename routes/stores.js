@@ -1,13 +1,11 @@
 var express = require('express');
 var router = express.Router();
-const passport = require('passport');
-const isLoggedIn = require('../config/auth')
+const storeCtrl = require("../controllers/stores");
+const isLoggedIn = require('../config/auth');
 
-
-router.get('/', function(req, res) {
-    res.render('stores/index.ejs');
-});
-
-
+router.get('/new', isLoggedIn, storeCtrl.new);
+router.get('/', storeCtrl.index);
+router.post('/', isLoggedIn, storeCtrl.create);
+router.get('/:id', storeCtrl.show);
 
 module.exports = router;
