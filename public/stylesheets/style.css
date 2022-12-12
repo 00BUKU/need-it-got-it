@@ -1,6 +1,7 @@
 h1 {
   color: green;
   text-align: center;
+  font-size: 50px;
 }
 
 .topnav {
@@ -62,4 +63,12 @@ h1 {
 #new-form {
   margin-top: 30px;
   text-align: center;
+
 }
+
+#list {
+  margin-top: 50px;
+  text-align: center;
+  margin-left: 900px;
+}
+

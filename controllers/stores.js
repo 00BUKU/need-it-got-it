@@ -22,11 +22,11 @@ function show(req, res) {
     console.log(req.session)
 
     Store.findById(req.params.id)
-    .populate("items")
     .exec(function (error, storeDoc) {
         if (error) return res.send("Error locating the store.");
         console.log(storeDoc);
-        res.render("stores/new", {
+
+        res.render("stores/items", {
             name: "store name",
             store: storeDoc
         });
@@ -47,7 +47,7 @@ Store.find({}, function (error, storeDocs) {
 
 function create(req,res) {
 
-    store.create(req.body, function (error, storeDoc) {
+    Store.create(req.body, function (error, storeDoc) {
         if (error) {
             return res.send("error creating, check terminal.");
         }
@@ -59,5 +59,5 @@ function create(req,res) {
 }
 
 function newStore(req,res) {
-    res.render("stores/new");
+    res.render("/stores");
   }
