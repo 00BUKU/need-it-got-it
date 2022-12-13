@@ -1,6 +1,6 @@
 const Store = require('../models/store');
 const store = require('../models/store');
-const items = require('../models/item');
+
 
 
 
@@ -9,8 +9,7 @@ module.exports = {
     create,
     show,
     index,
-    delete: deleteStore,
-    update
+    delete: deleteStore
 };
 
 
@@ -70,19 +69,6 @@ function newStore(req,res) {
     Store.findOneAndDelete(
       {_id: req.params.id, userRecommending: req.user._id}, function(err) {
         res.redirect('/stores');
-      }
-    );
-  }
-
-
-  function update(req, res) {
-    store.findOneAndUpdate(
-      {_id: req.params.id, userRecommending: req.user._id},
-      req.body,
-      {new: true},
-      function(err, store) {
-        if (err || !store) return res.redirect('/stores');
-        res.redirect(`/stores/${store._id}`);
       }
     );
   }

@@ -1,6 +1,6 @@
 const Store = require('../models/store');
 const store = require('../models/store');
-const items = require('../models/item');
+
 
 module.exports = {
     create,
@@ -23,14 +23,13 @@ function deleteItem(req, res){
 
 
 function create(req, res) {
-    Store.findById(req.params.id, function(err, book) {
+    Store.findById(req.params.id, function(err, storeDoc) {
       // Update req.body to contain user info
       req.body.userId = req.user._id;
       req.body.userName = req.user.name;
-      // Add the comment
-      store.items.push(req.body);
-      store.save(function(err) {
-        res.redirect(`/stores/${store._id}`);
+      storeDoc.item.push(req.body);
+      storeDoc.save(function(err) {
+        res.redirect(`/stores/${req.params._id}`);
       });
     });
   }

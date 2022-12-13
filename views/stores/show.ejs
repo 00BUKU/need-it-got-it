@@ -23,7 +23,7 @@
         <h2>Items</h2>
       
         <% if (user) { %>
-          <form id="add-items-form" method="POST" action="/stores/<%= store._id %>/items">
+          <form id="add-items-form" method="POST" action="/stores/<%= store._id %>/show">
             <label>Store:</label>
             <textarea name="content"></textarea>
             <input type="submit" value="NEED IT">
