@@ -8,6 +8,8 @@ module.exports = {
     create,
     show,
     index,
+    delete: deleteStore,
+    update
 };
 
 
@@ -26,7 +28,7 @@ function show(req, res) {
         if (error) return res.send("Error locating the store.");
         console.log(storeDoc);
 
-        res.render("stores/items", {
+        res.render("stores/show", {
             name: "store name",
             store: storeDoc
         });
@@ -40,7 +42,7 @@ function index(req, res) {
 Store.find({}, function (error, storeDocs) {
     console.log(storeDocs);
 
-    res.render("stores/new", { stores: storeDocs});
+    res.render("stores/index", { stores: storeDocs});
 });
 
 }
@@ -59,5 +61,27 @@ function create(req,res) {
 }
 
 function newStore(req,res) {
-    res.render("/stores");
+    res.render("stores/new");
+  }
+
+
+  function deleteStore(req, res) {
+    Store.findOneAndDelete(
+      {_id: req.params.id, userRecommending: req.user._id}, function(err) {
+        res.redirect('/stores');
+      }
+    );
+  }
+
+
+  function update(req, res) {
+    store.findOneAndUpdate(
+      {_id: req.params.id, userRecommending: req.user._id},
+      req.body,
+      {new: true},
+      function(err, book) {
+        if (err || !book) return res.redirect('/books');
+        res.redirect(`/books/${book._id}`);
+      }
+    );
   }

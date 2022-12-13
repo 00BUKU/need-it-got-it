@@ -21,7 +21,6 @@ function deleteItem(req, res){
 }
 
 
-
 function create(req, res) {
 
     Store.findById(req.params.id, function (error, storeDoc) {

@@ -6,7 +6,9 @@ const Schema = mongoose.Schema;
 const itemSchema = new Schema(
     {
         name: String,
-
+        user: {type: Schema.Types.ObjectId, ref: 'User', required: true},
+        userName: String,
+        userAvatar: String
     },
     {
         timestamps: true,

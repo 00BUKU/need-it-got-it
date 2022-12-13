@@ -17,30 +17,8 @@
   <form id="new-form" action="/stores" method="POST">
     <label>Store Name:</label>
     <input type="text" name="name">
-    <input type="submit" value="Add Store">
+    <input type="submit" value="Add Store"> 
 </form>
-<table id="list">
-    <thead>
-      <tr>
-        <th>STORES</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% stores.forEach(function(s) { %>
-        <tr>
-          <td><%= s.name %></td>
-          <td><a href="/stores/<%= s._id %>?_method=DELETE">items</a></td>
-          <td>
-            <% if (user && user._id.equals(r.user)) { %>
-              <form action="/stores/<%= r._id %>?_method=DELETE" method="POST">
-                <button type="submit">X</button>
-              </form>
-            <% } %>
-          </td>
-        </tr>
-        <% }); %>
-      </tbody>
-    </table>
 </body>
 </html>
 

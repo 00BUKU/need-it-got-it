@@ -3,9 +3,10 @@ var router = express.Router();
 const storeCtrl = require("../controllers/stores");
 const isLoggedIn = require('../config/auth');
 
-router.get('/new', storeCtrl.new);
+router.get('/new', isLoggedIn, storeCtrl.new);
 router.get('/', storeCtrl.index);
-router.post('/', storeCtrl.create);
+router.post('/', isLoggedIn, storeCtrl.create);
 router.get('/:id', storeCtrl.show);
+router.delete('/:id', storeCtrl.delete);
 
 module.exports = router;
