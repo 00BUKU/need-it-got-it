@@ -1,5 +1,6 @@
 const Store = require('../models/store');
 const store = require('../models/store');
+const items = require('../models/item');
 
 
 
@@ -81,7 +82,7 @@ function newStore(req,res) {
       {new: true},
       function(err, store) {
         if (err || !store) return res.redirect('/stores');
-        res.redirect(`/stores/${book._id}`);
+        res.redirect(`/stores/${store._id}`);
       }
     );
   }
