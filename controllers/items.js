@@ -14,7 +14,7 @@ function deleteItem(req, res){
         storeDoc.items.remove(req.params.id);
 
         storeDoc.save(function(error){
-            if(error) return res.send('Check terminal for error');
+            if(error) return res.send('broken delete doc');
             res.redirect(`/stores/${storeDoc._id}`);
         });
     });
@@ -22,23 +22,14 @@ function deleteItem(req, res){
 
 
 function create(req, res) {
-
-    Store.findById(req.params.id, function (error, storeDoc) {
-        if (error) {
-            console.log(error, "error from store callback findbyid");
-            return res.send("error from create items");
-        }
-
-        console.log(storeDoc);
-        req.body.user = req.user._id;
-        req.body.userName = req.user.name;
-        req.body.userAvatar = req.user.avatar;
-
-        storeDoc.items.push(req.body);
-        storeDoc.save(function (error) {
-            console.log(error, "storedoc.save callback error");
-
-            res.redirect(`/stores/${req.params.id}`);
-        });
+    Store.findById(req.params.id, function(err, book) {
+      // Update req.body to contain user info
+      req.body.userId = req.user._id;
+      req.body.userName = req.user.name;
+      // Add the comment
+      store.items.push(req.body);
+      store.save(function(err) {
+        res.redirect(`/stores/${store._id}`);
+      });
     });
-}
+  }

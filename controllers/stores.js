@@ -79,9 +79,9 @@ function newStore(req,res) {
       {_id: req.params.id, userRecommending: req.user._id},
       req.body,
       {new: true},
-      function(err, book) {
-        if (err || !book) return res.redirect('/books');
-        res.redirect(`/books/${book._id}`);
+      function(err, store) {
+        if (err || !store) return res.redirect('/stores');
+        res.redirect(`/stores/${book._id}`);
       }
     );
   }
