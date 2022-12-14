@@ -10,10 +10,14 @@
 <body>
   <h1>NEED IT GOT IT</h1>
   <div class="topnav">
+    <a href="/stores">STORES</a>
     <a href="/logout">LOG OUT</a>
-    <a href="/auth/google" class="login">LOG IN&nbsp;<img src="https://i.imgur.com/FHjYyi0.png" width=" 25px"></a>
+    <a href="/auth/google" class="login">LOG IN&nbsp;</a>
   </div>
-</div>
+
+
+  <h1>Stores</h1>
+
 <form id="new-form" action="/stores" method="POST">
   <label>Store Name:</label>
   <input type="text" name="name">
@@ -22,17 +26,26 @@
   <table id="stores">
     <thead>
       <tr>
-        <th>STORES</th>
       </tr>
     </thead>
     <tbody>
       <% stores.forEach(function(s) { %>
         <tr>
+          <td><form id="delete-store" action="/stores/<%= s.id %>?_method=DELETE" method="POST">
+            <button type="Submit">Delete</button>
+          </form>
+        </td>
           <td><%= s.name %></td>
           <td><a href="/stores/<%= s._id %>">Make A List</a></td>
         </tr>
         <% }); %>
       </tbody>
+    </table>
+
+    <thead>
+      <tr>
+      </tr>
+    </thead>
     </table>
 </body>
 </html>

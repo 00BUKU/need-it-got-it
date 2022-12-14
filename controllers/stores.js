@@ -24,6 +24,7 @@ function show(req, res) {
     console.log(req.session)
 
     Store.findById(req.params.id)
+
     .exec(function (error, storeDoc) {
         if (error) return res.send("Error locating the store.");
         console.log(storeDoc);
@@ -39,10 +40,10 @@ function show(req, res) {
 
 function index(req, res) {
 
-Store.find({}, function (error, storeDocs) {
-    console.log(storeDocs);
+Store.find({}, function (error, storeDoc) {
+    console.log(storeDoc);
 
-    res.render("stores/index", { stores: storeDocs});
+    res.render("stores/index", { stores: storeDoc});
 });
 
 }
@@ -60,14 +61,16 @@ function create(req,res) {
 
 }
 
-function newStore(req,res) {
+function newStore(req, res) {
     res.render("stores/new");
   }
 
 
   function deleteStore(req, res) {
     Store.findOneAndDelete(
+      // Ensue that the book was created by the logged in user
       {_id: req.params.id, userRecommending: req.user._id}, function(err) {
+        // Deleted book, so must redirect to index
         res.redirect('/stores');
       }
     );

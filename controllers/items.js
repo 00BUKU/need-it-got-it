@@ -1,7 +1,6 @@
 const Store = require('../models/store');
 const store = require('../models/store');
 
-
 module.exports = {
     create,
     delete: deleteItem
@@ -23,13 +22,17 @@ function deleteItem(req, res){
 
 
 function create(req, res) {
-    Store.findById(req.params.id, function(err, storeDoc) {
-      // Update req.body to contain user info
-      req.body.userId = req.user._id;
-      req.body.userName = req.user.name;
-      storeDoc.item.push(req.body);
-      storeDoc.save(function(err) {
-        res.redirect(`/stores/${req.params._id}`);
-      });
+  Store.findById(req.params.id, function(err, storeDoc) {
+    console.log(storeDoc);
+    req.body.userId = req.user._id;
+    req.body.userName = req.user.name;
+    req.body.userAvatar = req.user.avatar;
+    storeDoc.items.push(req.body);
+    storeDoc.save(function(error) {
+      res.redirect(`/stores/${req.params.id}`);
     });
-  }
+  });
+}
+
+
+

@@ -43,7 +43,7 @@ h1 {
 
 /* Right-aligned section inside the top navigation */
 .topnav-right {
-  float: right;
+  float: none;
 }
 
 @media screen and (max-width: 600px) {
@@ -63,12 +63,29 @@ h1 {
 #new-form {
   margin-top: 30px;
   text-align: center;
+  font-size: 22px;
 
 }
 
 #stores {
   margin-top: 50px;
   text-align: center;
-  margin-left: 900px;
+  margin-right: 50px;
+  font-size: 20px;
+
+  
 }
+
+#delete-store {
+
+  margin-left: 850px;
+}
+
+#stores-page {
+  margin-top: 50px;
+  text-align: center;
+  margin-right: 50px;
+  font-size: 20px;
+}
+
 
