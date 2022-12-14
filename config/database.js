@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-// export the function that creates a database connection
+
 module.exports = {
   connectDB,
 };

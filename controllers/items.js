@@ -3,7 +3,7 @@ const store = require('../models/store');
 
 module.exports = {
     create,
-    delete: deleteItem
+    delete: deleteItem,
 };
 
 

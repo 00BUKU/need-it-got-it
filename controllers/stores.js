@@ -22,13 +22,10 @@ module.exports = {
 function show(req, res) {
     console.log(req.user)
     console.log(req.session)
-
     Store.findById(req.params.id)
-
     .exec(function (error, storeDoc) {
         if (error) return res.send("Error locating the store.");
         console.log(storeDoc);
-
         res.render("stores/show", {
             name: "store name",
             store: storeDoc
@@ -58,19 +55,19 @@ function create(req,res) {
 
         res.redirect(`/stores/${storeDoc._id}`);
     });
-
 }
+
 
 function newStore(req, res) {
     res.render("stores/new");
   }
 
 
+  
   function deleteStore(req, res) {
     Store.findOneAndDelete(
-      // Ensue that the book was created by the logged in user
+
       {_id: req.params.id, userRecommending: req.user._id}, function(err) {
-        // Deleted book, so must redirect to index
         res.redirect('/stores');
       }
     );
