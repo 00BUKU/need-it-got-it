@@ -23,7 +23,9 @@ Screen shots coming soon
 #### Project Planning Board (Trello)
 https://trello.com/invite/b/k0H8CZDk/ATTI7297b8999aa9aec1d327c113af6c55f681DDCA83/need-it-got-it
 
- Link to depolyed game here soon
+#### App Deployment Link
+
+(https://sore-teal-fossa-vest.cyclic.app)
 
 ## Next Steps:
 
