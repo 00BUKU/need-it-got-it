@@ -6,7 +6,10 @@
  Need it got it is a shopping list app. It allows users to create and store lists of stores as well as lists of items sorted by store with the ability to store information like price and photos.
 
 ## Screenshot(s):
-Screen shots coming soon
+
+Screenshot from 2022-12-14 07-56-53.png
+Screenshot from 2022-12-14 07-57-28.png
+
 
 ## Technologies Used:
 

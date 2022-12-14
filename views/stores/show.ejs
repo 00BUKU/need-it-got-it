@@ -34,7 +34,6 @@
           </form>
           <% } else { %>
       
-      
             <% } %>
       
               <% if (store.items.length) { %>
@@ -45,21 +44,21 @@
                     </tr>
                   </thead>
                   <tbody>
-                      <% store.items.forEach(function(r) { %>
+                      <% store.items.forEach(function(i) { %>
       
                           <tr>
-                            <td class="items-user"><img alt="avatar" src="<%= r.userAvatar %>" referrerpolicy="no-referrer" ><%= r.userName %></td>
+                            <td class="items-user"><img alt="avatar" src="<%= i.userAvatar %>" referrerpolicy="no-referrer" ><%= i.userName %></td>
                             <td>
                             </td>
                             <td>
-                              <%= r.content %>
+                              <%= i.content %>
                             </td>
                             <td>
-                              <% r.store.items %> 
+                              <% i.store.items %> 
                             </td>
                             <td>
                               <% if (user && user._id.equals(r.user)) { %>
-                                <form action="/items/<%= r._id %>?_method=DELETE" method="POST">
+                                <form action="/items/<%= i._id %>?_method=DELETE" method="POST">
                                   <button type="submit">X</button>
                                 </form>
                               <% } %>

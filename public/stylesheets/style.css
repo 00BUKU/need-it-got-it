@@ -1,5 +1,5 @@
 h1 {
-  color: green;
+  color: orange;
   text-align: center;
   font-size: 50px;
 }
@@ -87,5 +87,11 @@ h1 {
   margin-right: 50px;
   font-size: 20px;
 }
+
+body {
+
+  background-color: azure;
+
+  }
 
 
